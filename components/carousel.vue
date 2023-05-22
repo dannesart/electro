@@ -11,7 +11,7 @@
                 </Text>
             </div>
 
-            <div class="md:absolute bottom-0 flex gap-6 left-1/2">
+            <div class="md:absolute bottom-0 flex gap-6 left-1/2" v-if="slides.length > 1">
                 <div v-for="(slide, index) in  slides " class="h-8 w-16 rounded-full bg-pink-100 cursor-pointer" :class="{
                     'bg-pink-400':
                         activeSlide === index
@@ -19,7 +19,7 @@
             </div>
 
         </div>
-        <div class="flex-1 flex justify-end relative h-96 h-[34rem]">
+        <div class="flex-none md:flex-1 flex justify-end relative h-96 h-[34rem]">
             <div v-for="(slide, index) in slides"
                 class="absolute right-0 w-96 w-[34rem] h-96 h-[34rem] overflow-hidden rounded-2xl"
                 :class="[...slideClasses[index]]">
@@ -43,18 +43,12 @@ const isSliding = ref(false);
 const slides: Slide[] = [{
     title: 'Välkommen till Electro Engineering',
     body: 'Ett företag man kommer ihåg'
-}, {
-    title: 'Slide 2',
-    body: 'body 2'
-}, {
-    title: 'Slide 3',
-    body: 'body 3'
 }];
 
 const slideClasses = [
-    [`bg-pink-50`, `z-50`, `-translate-x-0`],
-    [`bg-pink-100`, `z-40`, `-translate-x-20`, `scale-90`],
-    [`bg-pink-200`, `z-30`, `-translate-x-40`, `scale-75`],
+    [`bg-pink-50`, `z-40`, `-translate-x-0`],
+    [`bg-pink-100`, `z-30`, `-translate-x-20`, `scale-90`],
+    [`bg-pink-200`, `z-20`, `-translate-x-40`, `scale-75`],
 ]
 
 const clearAnimationState = () => {
@@ -89,7 +83,7 @@ const attachSlideInterval = () => {
 const detachSlideInterval = () => {
     clearInterval(automaticSlideInterval);
 }
-attachSlideInterval();
+if (slides.length > 1) attachSlideInterval();
 
 </script>
 

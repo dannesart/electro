@@ -11,7 +11,7 @@
         </ul>
 
         <div tabindex=0
-            class="fixed top-0  left-0 right-0 -translate-y-full p-5 md:p-10 shadow-xl z-50 bg-white transition-transform"
+            class="fixed top-0  left-0 right-0 -translate-y-full p-5 md:p-10 shadow-xl z-[60] bg-white transition-transform"
             :class="{ 'translate-y-0': showingSearch }" :aria-hidden="!showingSearch">
             <div class="max-w-[1700px] mx-auto flex flex-col gap-5 px-5 md:px-10 ">
                 <label class="text-gray-600">
@@ -34,7 +34,7 @@
 
             </div>
         </div>
-        <div class="fixed top-0 left-0 right-0 bottom-0 bg-pink-800 opacity-40 z-40" v-if="showingSearch"
+        <div class="fixed top-0 left-0 right-0 bottom-0 bg-pink-800 opacity-40 z-50" v-if="showingSearch"
             @click="toggleSearch">
         </div>
 
