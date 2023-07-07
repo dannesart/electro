@@ -2,7 +2,18 @@
     <NuxtLayout>
         <Carousel class="mb-24 "></Carousel>
         <Headline size="2">
-            Latest projects
+            Senaste projekten
+        </Headline>
+        <section class="flex flex-col md:flex-row gap-10 justify-between" id="articles"
+            :class="{ 'animated': hasBeenShowed }">
+            <Card route="/articles/grejs"></Card>
+            <Card route="/projects/hello"></Card>
+            <Card></Card>
+            <Card></Card>
+        </section>
+
+        <Headline size="2">
+            Aktuellt
         </Headline>
         <section class="flex flex-col md:flex-row gap-10 justify-between" id="articles"
             :class="{ 'animated': hasBeenShowed }">
@@ -15,6 +26,7 @@
     </NuxtLayout>
 </template>
 <script setup>
+
 
 const hasBeenShowed = ref(false);
 

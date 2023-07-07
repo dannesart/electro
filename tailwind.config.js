@@ -9,7 +9,11 @@ module.exports = {
     "./app.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        kodchasan: ["Kodchasan", "sans-serif"],
+      },
+    },
   },
   plugins: [],
   safelist: [

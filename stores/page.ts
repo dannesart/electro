@@ -27,19 +27,19 @@ export const usePageStore = defineStore("PageStore", {
     async getPages() {
       this._pages = [
         {
-          name: "Home",
+          name: "Hem",
           route: "/",
           id: "home",
           blocks: [],
         },
         {
-          name: "About",
+          name: "Om oss",
           route: "/about",
           id: "about",
           blocks: [],
         },
         {
-          name: "Contact",
+          name: "Kontakt",
           route: "/contact",
           id: "contact",
           blocks: [],
