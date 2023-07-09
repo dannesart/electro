@@ -19,7 +19,7 @@
             </div>
 
         </div>
-        <div class="flex-none md:flex-1 flex justify-end relative h-96 h-[34rem]">
+        <div class="flex-none md:flex-1 flex justify-end relative h-96 md:h-[34rem]">
             <div v-for="(slide, index) in slides" class="slide-img">
                 <img v-if="slide?.image" :src="slide?.image" class="object-cover h-full" />
             </div>
@@ -119,9 +119,10 @@ onMounted(() => {
 
     --slideSizeDiff: 6rem;
     --dist: calc(var(--slideSizeDiff) * 1.5);
+    --initSize: 34rem;
 
     --index: 0;
-    --size: calc(34rem - var(--index) * var(--slideSizeDiff));
+    --size: calc(var(--initSize) - var(--index) * var(--slideSizeDiff));
     --rightDist: calc(var(--index) * var(--dist));
     --topDist: calc(var(--index) * var(--slideSizeDiff) / 2);
     --z: calc(var(--index) * -10);
@@ -135,13 +136,16 @@ onMounted(() => {
     z-index: var(--z);
     right: var(--rightDist);
     top: var(--topDist);
-    transform-origin: center;
     transition: all 1s ease-in-out;
     transition-delay: var(--delay);
     @apply absolute overflow-hidden rounded-2xl;
 
-    @media(width < 768) {
-        @apply h-96;
+    @media (max-width: 700px) {
+
+        --initSize: 100%;
+        --slideSizeDiff: 0rem;
+        //@apply w-96;
+
     }
 
 }

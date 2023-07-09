@@ -3,7 +3,7 @@
         <Headline size="1">
             {{ page }}
         </Headline>
-        <section class="flex flex-col md:gap-10">
+        <section class="flex flex-col gap-6 md:gap-10">
             <Headline size="3">
                 Historia
             </Headline>
@@ -23,7 +23,7 @@
                 nya lokaler på Södra Station.
             </Text>
         </section>
-        <section class="flex flex-col md:gap-10">
+        <section class="flex flex-col gap-6 md:gap-10">
             <Headline size="3">
                 Verksamhet
             </Headline>
@@ -47,7 +47,7 @@
                 att de har möjlighet att utvecklas.
             </Text>
         </section>
-        <section class="flex flex-col md:gap-10">
+        <section class="flex flex-col gap-6 md:gap-10">
             <Headline size="3">
                 Kvalité och miljö
             </Headline>

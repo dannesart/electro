@@ -15,12 +15,12 @@
             :class="{ 'translate-y-0': showingSearch }" :aria-hidden="!showingSearch">
             <div class="max-w-[1700px] mx-auto flex flex-col gap-5 px-5 md:px-10 ">
                 <label class="text-gray-600">
-                    Search for projects or pages
+                    Sök efter projekt eller artiklar
                 </label>
                 <div class="flex gap-6 items-center">
                     <input ref="searchField" v-model="searchModel" type="search" @keyup="search"
                         class="p-3 px-6 flex-1 placeholder:text-pink-400 outline-none bg-pink-50 rounded-xl"
-                        placeholder="Search" />
+                        placeholder="Sökterm ..." />
                     <Button @click="search">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-7 h-7">

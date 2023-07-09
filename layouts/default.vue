@@ -1,21 +1,53 @@
 <template>
     <div class="layout">
         <header class="flex justify-between p-5 md:p-10 max-w-[1700px] mx-auto top-0 bg-white z-50" name="main-header">
-            <NuxtLink to="/" class="h-14 w-40 flex gap-3 text-3xl text-gray-600 font-kodchasan">
-                <div class="text-6xl">
-                    EE
-                </div>
-                <div class="flex flex-col text-2xl text-gray-600">
-                    ELECTRO
-                    <span class="text-base ">ENGINEERING</span>
-                </div>
-            </NuxtLink>
+            <Logo></Logo>
             <Menu></Menu>
         </header>
-        <main class="flex flex-col p-5 md:p-10 md:gap-10 max-w-[1700px] mx-auto">
+        <main class="flex flex-col p-5 md:p-10 gap-6 md:gap-10 max-w-[1700px] mx-auto">
             <slot />
         </main>
         <Totop></Totop>
+
+        <footer class="bg-pink-100 mt-20">
+
+            <div class="flex justify-between max-w-[1700px] p-5 md:p-10 mx-auto">
+                <Logo></Logo>
+                <section class="flex flex-col gap-6">
+                    <Headline size="3">
+                        Meny
+                    </Headline>
+                    <ul class="flex flex-col gap-3">
+                        <li v-for="page in pageStore.pages">
+                            <NuxtLink :to="page.route" class="hover:text-pink-400" active-class="text-pink-400">
+                                {{ page.name }}
+                            </NuxtLink>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="flex flex-col gap-6">
+                    <Headline size="3">
+                        Kontakta oss
+                    </Headline>
+                    <ul class="flex flex-col gap-3">
+                        <li>
+                            08-688 28 50
+                        </li>
+                        <li>
+                            info@electro.se
+                        </li>
+                        <li>
+                            Swedenborgsgatan 20B,
+                        </li>
+                        <li>
+                            118 27 Stockholm
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+        </footer>
 
         <div class="fixed bottom-10 left-10 right-10 p-10 rounded-xl bg-pink-200 z-[100] flex flex-col gap-5"
             v-if="!hideCookie">
@@ -39,7 +71,9 @@
 </template>
 
 <script setup>
+import { usePageStore } from '~~/stores/page';
 
+const pageStore = usePageStore();
 const hideCookie = ref(true);
 
 

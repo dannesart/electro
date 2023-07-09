@@ -1,10 +1,10 @@
 <template>
     <NuxtLayout>
         <Headline>
-            Search result for <span class="text-pink-400">{{ useRoute().query.query }}</span> </Headline>
+            Sökresultat för <span class="text-pink-400">{{ useRoute().query.query }}</span> </Headline>
 
         <p class="text-gray-500">
-            Showing 4 out of 12 results
+            Visar 4 av 12 resultat
         </p>
 
         <section class="flex">
