@@ -17,6 +17,10 @@ export default defineNuxtConfig({
   runtimeConfig: {
     origin: process.env.ORIGIN,
     api: process.env.API,
+    public: {
+      api: process.env.API,
+      useSearch: process.env.USE_SEARCH,
+    },
   },
   postcss: {
     plugins: {

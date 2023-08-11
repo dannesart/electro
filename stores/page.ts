@@ -27,13 +27,15 @@ export const usePageStore = defineStore("PageStore", {
   getters,
   actions: {
     async getPages() {
+      const config = useRuntimeConfig();
       try {
-        const pages = await axios.get<Page[]>("http://localhost:8080/pages");
+        const pages = await axios.get<Page[]>(config.public.api + "/pages");
         this._pages = pages.data;
       } catch (error) {}
     },
-    async getPage(id: string) {
-      await axios.get("http://localhost:8080/pages?slug=world", {});
+    async getPage({ id, slug }: { id?: string; slug?: string }) {
+      const config = useRuntimeConfig();
+      await axios.get(config.public.api + `/pages?slug=${slug}&id=${id}`, {});
     },
   },
 });
