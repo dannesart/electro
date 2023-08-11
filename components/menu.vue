@@ -4,7 +4,7 @@
         <ul class="flex gap-10 absolute z-40 md:static top-0 right-0 left-0 bottom-0 bg-white p-10 md:p-0 flex-col md:flex-row "
             :class="{ 'max-md:hidden': !showingMenu }">
             <li v-for="page in pageStore.pages">
-                <NuxtLink :to="page.route" class="hover:text-pink-400" active-class="text-pink-400">
+                <NuxtLink :to="page.slug" class="hover:text-pink-400" active-class="text-pink-400">
                     {{ page.title }}
                 </NuxtLink>
             </li>
