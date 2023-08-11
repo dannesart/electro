@@ -1,9 +1,11 @@
+import axios from "axios";
 import { defineStore } from "pinia";
 
 type Page = {
-  name: string;
+  title: string;
   id: string;
   route: string;
+  slug: string;
   blocks: any[];
 };
 
@@ -25,27 +27,13 @@ export const usePageStore = defineStore("PageStore", {
   getters,
   actions: {
     async getPages() {
-      this._pages = [
-        {
-          name: "Hem",
-          route: "/",
-          id: "home",
-          blocks: [],
-        },
-        {
-          name: "Om oss",
-          route: "/about",
-          id: "about",
-          blocks: [],
-        },
-        {
-          name: "Kontakt",
-          route: "/contact",
-          id: "contact",
-          blocks: [],
-        },
-      ];
+      try {
+        const pages = await axios.get<Page[]>("http://localhost:8080/pages");
+        this._pages = pages.data;
+      } catch (error) {}
     },
-    async getPage(id: string) {},
+    async getPage(id: string) {
+      await axios.get("http://localhost:8080/pages?slug=world", {});
+    },
   },
 });

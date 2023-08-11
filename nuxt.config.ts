@@ -14,6 +14,10 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  runtimeConfig: {
+    origin: process.env.ORIGIN,
+    api: process.env.API,
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

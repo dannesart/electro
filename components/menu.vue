@@ -5,7 +5,7 @@
             :class="{ 'max-md:hidden': !showingMenu }">
             <li v-for="page in pageStore.pages">
                 <NuxtLink :to="page.route" class="hover:text-pink-400" active-class="text-pink-400">
-                    {{ page.name }}
+                    {{ page.title }}
                 </NuxtLink>
             </li>
         </ul>
