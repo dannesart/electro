@@ -38,8 +38,7 @@
             @click="toggleSearch">
         </div>
 
-
-        <Button type="icon" @click="toggleSearch" v-if="!showingSearch">
+        <Button type="icon" @click="toggleSearch" v-if="!showingSearch && config.public.useSearch === 'true'">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 class="w-7 h-7">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -65,6 +64,7 @@
 import { usePageStore } from '~~/stores/page';
 const pageStore = usePageStore();
 const router = useRouter();
+const config = useRuntimeConfig();
 
 const showingMenu = ref(false);
 const toggleMenu = () => { showingMenu.value = !showingMenu.value; showingSearch.value = false; }
