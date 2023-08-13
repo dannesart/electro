@@ -56,6 +56,7 @@ const clearAnimationState = () => {
 clearAnimationState()
 
 const handleClickChangeSlide = (index: number) => {
+    if (index === activeSlide.value) return;
     detachSlideInterval();
     changeSlide(index);
     attachSlideInterval();
@@ -120,7 +121,6 @@ onMounted(() => {
     --slideSizeDiff: 6rem;
     --dist: calc(var(--slideSizeDiff) * 1.5);
     --initSize: 34rem;
-
     --index: 0;
     --size: calc(var(--initSize) - var(--index) * var(--slideSizeDiff));
     --rightDist: calc(var(--index) * var(--dist));
