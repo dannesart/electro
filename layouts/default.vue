@@ -1,6 +1,7 @@
 <template>
     <div class="layout">
-        <header class="flex justify-between p-5 md:p-10 max-w-[1700px] mx-auto top-0 bg-white z-50" name="main-header">
+        <header class="flex justify-between sticky p-5 md:p-10 max-w-[1700px] mx-auto top-0 bg-white z-50"
+            name="main-header">
             <Logo></Logo>
             <Menu></Menu>
         </header>
